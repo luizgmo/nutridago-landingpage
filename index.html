@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>João Henrique · nutri.dago</title>
+<meta name="description" content="Nutricionista Clínico especializado em Saúde Metabólica. Barra Bonita · Jaú · Online">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;0,600;0,700;1,300&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --forest:   #1B3A2D;
+  --sage:     #3D6B52;
+  --gold:     #B8922A;
+  --gold-lt:  #D4AA40;
+  --cream:    #F5F0E8;
+  --offwhite: #FAFAF5;
+  --ink:      #1A1A1A;
+  --muted:    rgba(26,26,26,0.45);
+  --border:   rgba(27,58,45,0.11);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Jost', sans-serif;
+  background: var(--offwhite);
+  color: var(--ink);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 90% 55% at 50% -5%, rgba(27,58,45,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 100% 85%, rgba(184,146,42,0.04) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 50% at 0% 100%, rgba(61,107,82,0.04) 0%, transparent 55%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.top-bar {
+  height: 3px;
+  background: linear-gradient(90deg, var(--forest), var(--sage), var(--gold));
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+}
+
+.wrapper {
+  position: relative;
+  z-index: 1;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 0 20px 64px;
+}
+
+/* ── HEADER ── */
+.header {
+  padding: 52px 0 28px;
+  text-align: center;
+  animation: fadeUp 0.65s ease both;
+}
+
+/* ── JH LOGO ── */
+.logo-wrap {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 24px;
+}
+
+.logo-outer-ring {
+  position: absolute;
+  inset: -10px;
+  border-radius: 28px;
+  border: 1px solid rgba(184,146,42,0.25);
+  animation: pulse-ring 3s ease-in-out infinite;
+}
+
+.logo-outer-ring-2 {
+  position: absolute;
+  inset: -18px;
+  border-radius: 34px;
+  border: 1px solid rgba(184,146,42,0.10);
+  animation: pulse-ring 3s ease-in-out 1.5s infinite;
+}
+
+@keyframes pulse-ring {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50%       { opacity: 1;   transform: scale(1.02); }
+}
+
+.logo-box {
+  width: 88px;
+  height: 88px;
+  border-radius: 22px;
+  background: var(--forest);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    0 8px 32px rgba(27,58,45,0.28),
+    0 2px 8px rgba(27,58,45,0.15),
+    inset 0 1px 0 rgba(245,240,232,0.08);
+}
+
+/* Subtle inner glow */
+.logo-box::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 35% 30%, rgba(184,146,42,0.18), transparent 65%);
+  border-radius: inherit;
+}
+
+/* Thin gold border */
+.logo-box::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 1.5px solid rgba(184,146,42,0.28);
+}
+
+/* JH SVG monogram */
+.logo-svg {
+  position: relative;
+  z-index: 2;
+  width: 56px;
+  height: 40px;
+}
+
+.name {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: 1.72rem;
+  color: var(--forest);
+  letter-spacing: 0.5px;
+  line-height: 1.1;
+  margin-bottom: 5px;
+}
+
+.handle {
+  font-weight: 300;
+  font-size: 0.8rem;
+  color: var(--gold);
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+/* ── HEADLINE FORTE ── */
+.headline {
+  font-family: 'Jost', sans-serif;
+  font-weight: 400;
+  font-size: 0.95rem;
+  color: var(--ink);
+  line-height: 1.65;
+  max-width: 340px;
+  margin: 0 auto 20px;
+  letter-spacing: 0.1px;
+}
+
+.headline strong {
+  font-weight: 600;
+  color: var(--forest);
+}
+
+/* ── PROVA SOCIAL ── */
+.social-proof {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin: 0 auto 20px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 8px 20px;
+  box-shadow: 0 2px 12px rgba(27,58,45,0.07);
+  width: fit-content;
+  animation: fadeUp 0.65s ease 0.05s both;
+}
+
+.proof-item {
+  text-align: center;
+  padding: 0 14px;
+}
+
+.proof-item + .proof-item {
+  border-left: 1px solid var(--border);
+}
+
+.proof-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--forest);
+  letter-spacing: 0.5px;
+  line-height: 1;
+  margin-bottom: 2px;
+}
+
+.proof-label {
+  font-size: 0.62rem;
+  font-weight: 400;
+  color: var(--muted);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* ── GATILHO EMOCIONAL ── */
+.hook-card {
+  background: var(--forest);
+  border-radius: 14px;
+  padding: 18px 22px;
+  margin-bottom: 24px;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+  animation: fadeUp 0.65s ease 0.08s both;
+  box-shadow: 0 4px 20px rgba(27,58,45,0.18);
+}
+
+.hook-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 20% 30%, rgba(184,146,42,0.1), transparent 65%);
+}
+
+.hook-quote {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3.5rem;
+  color: rgba(184,146,42,0.15);
+  line-height: 1;
+  font-style: italic;
+  pointer-events: none;
+}
+
+.hook-text {
+  font-size: 0.86rem;
+  color: rgba(245,240,232,0.88);
+  line-height: 1.7;
+  position: relative;
+  z-index: 2;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.hook-text strong {
+  font-style: normal;
+  font-weight: 500;
+  color: var(--cream);
+}
+
+/* ── DIVIDER ── */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 24px 0;
+  opacity: 0.4;
+}
+.divider-line   { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--border)); }
+.divider-line.r { background: linear-gradient(90deg, var(--border), transparent); }
+.divider-dot    { width: 4px; height: 4px; border-radius: 50%; background: var(--gold); }
+
+/* ── SECTION LABEL ── */
+.section-label {
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+/* ── BUTTONS ── */
+.links-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.link-btn {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 15px 18px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  text-decoration: none;
+  color: var(--ink);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(27,58,45,0.06);
+}
+
+.link-btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(27,58,45,0.025), transparent 55%);
+  opacity: 0;
+  transition: opacity 0.22s;
+}
+
+.link-btn:hover { transform: translateY(-2px); border-color: rgba(184,146,42,0.32); box-shadow: 0 7px 26px rgba(27,58,45,0.11); }
+.link-btn:hover::after { opacity: 1; }
+.link-btn:active { transform: translateY(0); }
+
+/* Primary */
+.link-btn.primary {
+  background: var(--forest);
+  border-color: rgba(184,146,42,0.3);
+  box-shadow: 0 6px 22px rgba(27,58,45,0.24);
+}
+.link-btn.primary .link-title { color: var(--cream); }
+.link-btn.primary .link-desc  { color: rgba(245,240,232,0.5); }
+.link-btn.primary .link-arrow { color: rgba(245,240,232,0.4); }
+.link-btn.primary:hover { background: #1F4234; box-shadow: 0 10px 34px rgba(27,58,45,0.28); }
+
+/* Gold CTA */
+.link-btn.cta {
+  background: linear-gradient(135deg, #1B3A2D, #224836);
+  border-color: rgba(184,146,42,0.45);
+  box-shadow: 0 6px 22px rgba(27,58,45,0.2), inset 0 1px 0 rgba(184,146,42,0.1);
+}
+.link-btn.cta .link-title { color: var(--gold-lt); font-size: 0.96rem; font-weight: 600; }
+.link-btn.cta .link-desc  { color: rgba(212,170,64,0.5); }
+.link-btn.cta .link-arrow { color: var(--gold); }
+.link-btn.cta:hover { border-color: var(--gold); box-shadow: 0 10px 34px rgba(184,146,42,0.18); }
+
+.link-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: rgba(27,58,45,0.06);
+  font-size: 17px;
+}
+
+.link-btn.primary .link-icon { background: rgba(245,240,232,0.1); }
+.link-btn.cta     .link-icon { background: rgba(184,146,42,0.14); }
+
+.link-content { flex: 1; min-width: 0; }
+
+.link-title {
+  font-weight: 500;
+  font-size: 0.88rem;
+  color: var(--ink);
+  letter-spacing: 0.2px;
+  margin-bottom: 1px;
+}
+
+.link-desc {
+  font-size: 0.73rem;
+  color: var(--muted);
+  font-weight: 300;
+  letter-spacing: 0.1px;
+}
+
+.link-arrow {
+  font-size: 0.78rem;
+  color: var(--muted);
+  opacity: 0.5;
+  transition: transform 0.18s, opacity 0.18s;
+  flex-shrink: 0;
+}
+
+.link-btn:hover .link-arrow { transform: translateX(3px); opacity: 0.9; }
+
+/* ── SPECIALTIES GRID ── */
+.specialty-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9px;
+  margin-bottom: 8px;
+}
+
+.spec-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 15px 13px;
+  transition: transform 0.22s, border-color 0.22s, box-shadow 0.22s;
+  box-shadow: 0 2px 8px rgba(27,58,45,0.05);
+}
+
+.spec-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(184,146,42,0.28);
+  box-shadow: 0 6px 18px rgba(27,58,45,0.09);
+}
+
+.spec-icon   { font-size: 20px; display: block; margin-bottom: 7px; }
+
+.spec-title {
+  font-weight: 500;
+  font-size: 0.78rem;
+  color: var(--forest);
+  letter-spacing: 0.3px;
+  margin-bottom: 2px;
+}
+
+.spec-sub {
+  font-size: 0.67rem;
+  color: var(--muted);
+  font-weight: 300;
+  line-height: 1.45;
+}
+
+/* ── LOCATIONS ── */
+.locations {
+  display: flex;
+  gap: 7px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 6px 0 10px;
+}
+
+.loc-pill {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: var(--sage);
+  background: rgba(61,107,82,0.07);
+  border: 1px solid rgba(61,107,82,0.14);
+  padding: 5px 13px;
+  border-radius: 100px;
+}
+
+.loc-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--sage); opacity: 0.55; }
+
+/* ── SOCIAL ICONS ── */
+.social-row {
+  display: flex;
+  gap: 9px;
+  justify-content: center;
+  margin: 12px 0 6px;
+}
+
+.social-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: transform 0.22s, border-color 0.22s, box-shadow 0.22s;
+  box-shadow: 0 2px 8px rgba(27,58,45,0.05);
+}
+
+.social-btn:hover {
+  transform: translateY(-2px);
+  border-color: rgba(184,146,42,0.32);
+  box-shadow: 0 5px 16px rgba(27,58,45,0.09);
+}
+
+/* ── CRN ── */
+.crn-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 22px 0 8px;
+}
+.crn-text { font-size: 0.68rem; color: var(--muted); letter-spacing: 2px; text-transform: uppercase; font-weight: 300; }
+.crn-dot  { width: 3px; height: 3px; border-radius: 50%; background: var(--gold); opacity: 0.5; }
+
+/* ── FOOTER ── */
+.footer {
+  text-align: center;
+  padding-top: 20px;
+}
+.footer-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--forest);
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+.footer-sub {
+  font-size: 0.66rem;
+  color: var(--muted);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.links-group         { animation: fadeUp 0.65s ease 0.10s both; }
+.links-group.delay2  { animation-delay: 0.16s; }
+.links-group.delay3  { animation-delay: 0.22s; }
+.specialty-grid      { animation: fadeUp 0.65s ease 0.26s both; }
+.locations           { animation: fadeUp 0.65s ease 0.30s both; }
+.social-row          { animation: fadeUp 0.65s ease 0.34s both; }
+.crn-row             { animation: fadeUp 0.65s ease 0.38s both; }
+.footer              { animation: fadeUp 0.65s ease 0.42s both; }
+</style>
+</head>
+<body>
+
+<div class="top-bar"></div>
+
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <header class="header">
+
+    <!-- JH LOGO -->
+    <div class="logo-wrap">
+      <div class="logo-outer-ring-2"></div>
+      <div class="logo-outer-ring"></div>
+      <div class="logo-box">
+        <svg class="logo-svg" viewBox="0 0 56 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- J -->
+          <path d="M6 8 L6 28 C6 33 9 36 14 36 C19 36 22 33 22 28 L22 24"
+                stroke="#F5F0E8" stroke-width="2.8" stroke-linecap="round" fill="none"/>
+          <!-- Thin gold accent on J -->
+          <path d="M6 8 L6 26 C6 31.5 8.8 34.5 14 34.5"
+                stroke="rgba(184,146,42,0.45)" stroke-width="1" stroke-linecap="round" fill="none"/>
+          <!-- H left vertical -->
+          <path d="M30 8 L30 36"
+                stroke="#F5F0E8" stroke-width="2.8" stroke-linecap="round" fill="none"/>
+          <!-- H right vertical -->
+          <path d="M50 8 L50 36"
+                stroke="#F5F0E8" stroke-width="2.8" stroke-linecap="round" fill="none"/>
+          <!-- H crossbar -->
+          <path d="M30 22 L50 22"
+                stroke="#F5F0E8" stroke-width="2.8" stroke-linecap="round" fill="none"/>
+          <!-- Gold crossbar accent -->
+          <path d="M30 22 L50 22"
+                stroke="rgba(184,146,42,0.7)" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+          <!-- Gold dot accent between J and H -->
+          <circle cx="26" cy="22" r="2" fill="#B8922A" opacity="0.9"/>
+          <!-- Molecular dots subtle -->
+          <circle cx="6"  cy="8"  r="1.4" fill="rgba(184,146,42,0.5)"/>
+          <circle cx="22" cy="8"  r="1.4" fill="rgba(184,146,42,0.5)"/>
+          <circle cx="30" cy="8"  r="1.4" fill="rgba(184,146,42,0.5)"/>
+          <circle cx="50" cy="8"  r="1.4" fill="rgba(184,146,42,0.5)"/>
+          <circle cx="30" cy="36" r="1.4" fill="rgba(184,146,42,0.35)"/>
+          <circle cx="50" cy="36" r="1.4" fill="rgba(184,146,42,0.35)"/>
+        </svg>
+      </div>
+    </div>
+
+    <h1 class="name">João Henrique<br>Papili Pagini</h1>
+    <p class="handle">@nutri.dago</p>
+
+    <p class="headline">
+      Perca gordura, controle sua saúde metabólica<br>
+      e <strong>pare de recomeçar dietas.</strong>
+    </p>
+
+    <!-- PROVA SOCIAL -->
+    <div class="social-proof">
+      <div class="proof-item">
+        <div class="proof-num">+200</div>
+        <div class="proof-label">Pacientes</div>
+      </div>
+      <div class="proof-item">
+        <div class="proof-num">CRN</div>
+        <div class="proof-label">93575/P</div>
+      </div>
+      <div class="proof-item">
+        <div class="proof-num">100%</div>
+        <div class="proof-label">Evidência</div>
+      </div>
+    </div>
+
+  </header>
+
+  <!-- GATILHO EMOCIONAL -->
+  <div class="hook-card">
+    <div class="hook-quote">"</div>
+    <p class="hook-text">
+      Se você já tentou de tudo e não teve resultado,
+      <strong>o problema pode não ser sua disciplina</strong>
+      e sim sua estratégia.
+    </p>
+  </div>
+
+  <!-- CTA PRINCIPAL -->
+  <div class="links-group">
+    <a href="https://beacons.ai/nutri.joaohenrique" target="_blank" class="link-btn cta">
+      <div class="link-icon">📅</div>
+      <div class="link-content">
+        <div class="link-title">Agendar Consulta</div>
+        <div class="link-desc">Presencial ou online · Horários disponíveis</div>
+      </div>
+      <span class="link-arrow">→</span>
+    </a>
+  </div>
+
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-dot"></div>
+    <div class="divider-line r"></div>
+  </div>
+
+  <!-- ATENDIMENTO -->
+  <p class="section-label">Atendimento</p>
+
+  <div class="links-group delay2">
+    <a href="https://beacons.ai/nutri.joaohenrique" target="_blank" class="link-btn primary">
+      <div class="link-icon">🧬</div>
+      <div class="link-content">
+        <div class="link-title">Avaliação Metabólica</div>
+        <div class="link-desc">Análise completa com base em exames e histórico</div>
+      </div>
+      <span class="link-arrow">→</span>
+    </a>
+
+    <a href="https://beacons.ai/nutri.joaohenrique" target="_blank" class="link-btn">
+      <div class="link-icon">📋</div>
+      <div class="link-content">
+        <div class="link-title">Conhecer o Acompanhamento</div>
+        <div class="link-desc">Como funciona o processo do início ao resultado</div>
+      </div>
+      <span class="link-arrow">→</span>
+    </a>
+
+    <a href="https://wa.me/5514998592405?text=Quero%20agendar%20consulta" target="_blank" class="link-btn">
+      <div class="link-icon">💬</div>
+      <div class="link-content">
+        <div class="link-title">Iniciar meu Acompanhamento</div>
+        <div class="link-desc">Falar com nutricionista sobre o seu caso</div>
+      </div>
+      <span class="link-arrow">→</span>
+    </a>
+  </div>
+
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-dot"></div>
+    <div class="divider-line r"></div>
+  </div>
+
+  <!-- ESPECIALIDADES -->
+  <p class="section-label">Especialidades</p>
+
+  <div class="specialty-grid">
+    <div class="spec-card">
+      <span class="spec-icon">⚡</span>
+      <div class="spec-title">Emagrecimento sem Rebote</div>
+      <div class="spec-sub">Resultado real e duradouro</div>
+    </div>
+    <div class="spec-card">
+      <span class="spec-icon">🧬</span>
+      <div class="spec-title">Resistência à Insulina</div>
+      <div class="spec-sub">Estratégia metabólica clínica</div>
+    </div>
+    <div class="spec-card">
+      <span class="spec-icon">🧠</span>
+      <div class="spec-title">Controle de Fome e Compulsão</div>
+      <div class="spec-sub">Abordagem comportamental</div>
+    </div>
+    <div class="spec-card">
+      <span class="spec-icon">💪</span>
+      <div class="spec-title">Hipertrofia Metabólica</div>
+      <div class="spec-sub">Composição corporal com ajuste hormonal</div>
+    </div>
+  </div>
+
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-dot"></div>
+    <div class="divider-line r"></div>
+  </div>
+
+  <!-- CONTEÚDO -->
+  <p class="section-label">Conteúdo e Instituto</p>
+
+  <div class="links-group delay3">
+    <a href="https://instagram.com/nutri.dago" target="_blank" class="link-btn">
+      <div class="link-icon">📸</div>
+      <div class="link-content">
+        <div class="link-title">Instagram @nutri.dago</div>
+        <div class="link-desc">Dicas, ciência e casos clínicos</div>
+      </div>
+      <span class="link-arrow">→</span>
+    </a>
+
+    <a href="https://instagram.com/ima.metabolico" target="_blank" class="link-btn">
+      <div class="link-icon">🏛️</div>
+      <div class="link-content">
+        <div class="link-title">Instituto @ima.metabolico</div>
+        <div class="link-desc">Saúde metabólica em parceria</div>
+      </div>
+      <span class="link-arrow">→</span>
+    </a>
+  </div>
+
+  <!-- LOCALIZAÇÕES -->
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-dot"></div>
+    <div class="divider-line r"></div>
+  </div>
+
+  <div class="locations">
+    <div class="loc-pill"><div class="loc-dot"></div>Barra Bonita</div>
+    <div class="loc-pill"><div class="loc-dot"></div>Jaú</div>
+    <div class="loc-pill"><div class="loc-dot"></div>Online · Brasil</div>
+  </div>
+
+  <!-- SOCIAL -->
+  <div class="social-row">
+    <a href="https://instagram.com/nutri.dago" target="_blank" class="social-btn" title="Instagram">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none">
+        <rect x="2" y="2" width="20" height="20" rx="5" stroke="#3D6B52" stroke-width="1.7" fill="none"/>
+        <circle cx="12" cy="12" r="4.5" stroke="#3D6B52" stroke-width="1.7" fill="none"/>
+        <circle cx="17.5" cy="6.5" r="1" fill="#3D6B52"/>
+      </svg>
+    </a>
+    <a href="https://wa.me/5514998592405" target="_blank" class="social-btn" title="WhatsApp">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none">
+        <path d="M12 2C6.48 2 2 6.48 2 12C2 13.9 2.54 15.68 3.47 17.18L2 22L7.03 20.56C8.47 21.44 10.17 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2Z" stroke="#3D6B52" stroke-width="1.7" fill="none" stroke-linejoin="round"/>
+        <path d="M9 11C9 11 9.5 12.5 11 14C12.5 15.5 14 16 14 16L15.5 14.5C15.5 14.5 16.5 15 17.5 15.5C18.5 16 18 17.5 17 17.5C15 17.5 9 14 9 8C9 7 10.5 6.5 11 7.5C11.5 8.5 12 9.5 12 9.5L10.5 11H9Z" stroke="#3D6B52" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+    <a href="https://beacons.ai/nutri.dago" target="_blank" class="social-btn" title="Agendar">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none">
+        <rect x="3" y="5" width="18" height="16" rx="3" stroke="#3D6B52" stroke-width="1.7" fill="none"/>
+        <line x1="3" y1="10" x2="21" y2="10" stroke="#3D6B52" stroke-width="1.7" stroke-linecap="round"/>
+        <line x1="8" y1="3" x2="8" y2="7" stroke="#3D6B52" stroke-width="1.7" stroke-linecap="round"/>
+        <line x1="16" y1="3" x2="16" y2="7" stroke="#3D6B52" stroke-width="1.7" stroke-linecap="round"/>
+        <circle cx="12" cy="16" r="2" fill="#B8922A" opacity="0.8"/>
+      </svg>
+    </a>
+  </div>
+
+  <!-- CRN -->
+  <div class="crn-row">
+    <span class="crn-text">João Henrique Papili Pagini</span>
+    <div class="crn-dot"></div>
+    <span class="crn-text">CRN 93575/P</span>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-brand">nutri.dago</div>
+    <p class="footer-sub">Nutricionista Clínico · Saúde Metabólica</p>
+  </footer>
+
+</div>
+</body>
+</html>

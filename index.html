@@ -6,6 +6,7 @@
 <meta name="theme-color" content="#1b3a2d">
 <title>João Henrique · nutri.dago</title>
 <meta name="description" content="Nutricionista Clínico especializado em Saúde Metabólica. Barra Bonita · Jaú · Online">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 56 40' fill='none'%3E%3Crect width='56' height='40' rx='8' fill='%231a382c'/%3E%3Cpath d='M6 8 L6 28 C6 33 9 36 14 36 C19 36 22 33 22 28 L22 24' stroke='%23F5F0E8' stroke-width='2.8' stroke-linecap='round'/%3E%3Cpath d='M30 8 L30 36' stroke='%23F5F0E8' stroke-width='2.8' stroke-linecap='round'/%3E%3Cpath d='M50 8 L50 36' stroke='%23F5F0E8' stroke-width='2.8' stroke-linecap='round'/%3E%3Cpath d='M30 22 L50 22' stroke='%23F5F0E8' stroke-width='2.8' stroke-linecap='round'/%3E%3Cpath d='M30 22 L50 22' stroke='%23B8922A' stroke-opacity='0.7' stroke-width='1.2' stroke-linecap='round'/%3E%3Ccircle cx='26' cy='22' r='2' fill='%23B8922A' opacity='0.9'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;0,600;0,700;1,300&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -28,7 +29,7 @@
   --radius-xl: 28px;
   --radius-lg: 18px;
   --radius-md: 14px;
-  --container: min(1120px, calc(100vw - 32px));
+  --container: min(680px, calc(100vw - 48px));
 }
 
 html { scroll-behavior: smooth; }
@@ -79,7 +80,7 @@ a { color: inherit; }
 /* HERO GRID */
 .hero-shell {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: 1fr;
   gap: 24px;
   align-items: stretch;
   padding-top: 24px;
@@ -143,30 +144,12 @@ a { color: inherit; }
 .logo-outer-ring   { inset: -10px; }
 .logo-outer-ring-2 { inset: -18px; border-color: rgba(184,146,42,0.09); animation-delay: 1.6s; }
 
-.logo-box {
-  position: relative;
-  width: 92px;
-  height: 92px;
-  display: grid;
-  place-items: center;
-  border-radius: 24px;
-  background: linear-gradient(160deg, #1a382c, #244938);
-  box-shadow: 0 12px 32px rgba(27,58,45,0.24), inset 0 1px 0 rgba(245,240,232,0.08);
-  overflow: hidden;
-}
-.logo-box::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 34% 28%, rgba(184,146,42,0.18), transparent 60%);
-}
-.logo-box::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  border: 1.5px solid rgba(184,146,42,0.28);
-}
+.logo-box { position: relative; width: 92px; height: 92px; display: grid; place-items: center; border-radius: 24px; background: linear-gradient(160deg, #1a382c, #244938); box-shadow: 0 12px 32px rgba(27,58,45,0.24), inset 0 1px 0 rgba(245,240,232,0.08); overflow: hidden; }
+.logo-box.profile-box { background: #e8e0d4; }
+.logo-box::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 34% 28%, rgba(184,146,42,0.18), transparent 60%); }
+.logo-box.profile-box::before { display: none; }
+.logo-box::after { content: ""; position: absolute; inset: 0; border-radius: inherit; border: 1.5px solid rgba(184,146,42,0.28); }
+.profile-img { position: relative; z-index: 1; width: 100%; height: 100%; object-fit: cover; border-radius: inherit; }
 
 .logo-svg { position: relative; z-index: 1; width: 56px; height: 40px; }
 
@@ -389,7 +372,7 @@ a { color: inherit; }
 .section-grid {
   margin-top: 28px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 24px;
 }
 
@@ -705,8 +688,6 @@ a { color: inherit; }
 
 /* RESPONSIVE */
 @media (max-width: 980px) {
-  .hero-shell,
-  .section-grid { grid-template-columns: 1fr; }
   .headline { max-width: 18ch; }
 }
 
@@ -771,22 +752,8 @@ a { color: inherit; }
           <div class="logo-wrap" aria-hidden="true">
             <div class="logo-outer-ring-2"></div>
             <div class="logo-outer-ring"></div>
-            <div class="logo-box">
-              <svg class="logo-svg" role="img" aria-label="Logo JH" viewBox="0 0 56 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M6 8 L6 28 C6 33 9 36 14 36 C19 36 22 33 22 28 L22 24" stroke="#F5F0E8" stroke-width="2.8" stroke-linecap="round"/>
-                <path d="M6 8 L6 26 C6 31.5 8.8 34.5 14 34.5" stroke="#B8922A" stroke-opacity="0.45" stroke-width="1" stroke-linecap="round"/>
-                <path d="M30 8 L30 36"  stroke="#F5F0E8" stroke-width="2.8" stroke-linecap="round"/>
-                <path d="M50 8 L50 36"  stroke="#F5F0E8" stroke-width="2.8" stroke-linecap="round"/>
-                <path d="M30 22 L50 22" stroke="#F5F0E8" stroke-width="2.8" stroke-linecap="round"/>
-                <path d="M30 22 L50 22" stroke="#B8922A" stroke-opacity="0.7" stroke-width="1.2" stroke-linecap="round"/>
-                <circle cx="26" cy="22" r="2"   fill="#B8922A" opacity="0.9"/>
-                <circle cx="6"  cy="8"  r="1.4" fill="#B8922A" opacity="0.5"/>
-                <circle cx="22" cy="8"  r="1.4" fill="#B8922A" opacity="0.5"/>
-                <circle cx="30" cy="8"  r="1.4" fill="#B8922A" opacity="0.5"/>
-                <circle cx="50" cy="8"  r="1.4" fill="#B8922A" opacity="0.5"/>
-                <circle cx="30" cy="36" r="1.4" fill="#B8922A" opacity="0.35"/>
-                <circle cx="50" cy="36" r="1.4" fill="#B8922A" opacity="0.35"/>
-              </svg>
+            <div class="logo-box profile-box">
+              <img src="images/profile.jpg" alt="João Henrique Papili Pagini" class="profile-img">
             </div>
           </div>
 
@@ -813,11 +780,6 @@ a { color: inherit; }
            href="https://wa.me/5514998592405?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%21"
            target="_blank" rel="noopener noreferrer">
           Agendar consulta
-        </a>
-        <a class="pill-link secondary"
-           href="https://wa.me/5514998592405?text=Ol%C3%A1%2C%20gostaria%20de%20falar%20com%20o%20nutricionista%20sobre%20o%20meu%20caso."
-           target="_blank" rel="noopener noreferrer">
-          Falar no WhatsApp
         </a>
       </div>
 
@@ -962,16 +924,6 @@ a { color: inherit; }
           <span class="link-arrow" aria-hidden="true">↓</span>
         </a>
 
-        <!-- Iniciar acompanhamento: WhatsApp direto -->
-        <a href="https://wa.me/5514998592405?text=Ol%C3%A1%2C%20gostaria%20de%20iniciar%20meu%20acompanhamento%20nutricional!"
-           target="_blank" rel="noopener noreferrer" class="link-btn">
-          <div class="link-icon">💬</div>
-          <div class="link-content">
-            <div class="link-title">Iniciar meu Acompanhamento</div>
-            <div class="link-desc">Fale diretamente sobre o seu caso e dê o primeiro passo.</div>
-          </div>
-          <span class="link-arrow" aria-hidden="true">→</span>
-        </a>
       </div>
 
       <!-- FIX: COMO FUNCIONA — 4 steps cards -->
